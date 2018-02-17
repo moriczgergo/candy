@@ -1,4 +1,4 @@
-# candy
+# Candy
 The Markdown-based reference platform.
 
 ## Setup
