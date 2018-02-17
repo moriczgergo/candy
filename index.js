@@ -9,10 +9,12 @@ var wss = new WebSocket.Server({
 });
 
 wss.on('connection', function connection(ws) {
+	ws.on('error', () => console.log(chalk.yellow("Something happened. Continuing...")));
 	ws.on('message', function incoming(message) {
 		var messageObj = JSON.parse(message);
 		switch (messageObj.type) {
 			case "reference":
+				console.log(chalk.cyan(`Request to read "${messageObj.path}".`))
 				var ref = getReference(messageObj.path);
 				if (typeof ref != "undefined") {
 					ws.send(JSON.stringify({
@@ -46,6 +48,8 @@ wss.on('connection', function connection(ws) {
 		}
 	});
 });
+
+wss.on('error', () => console.log(chalk.yellow("Something happened. Continuing...")));
 
 console.log(chalk.cyan("Testing getItems:"));
 console.log(JSON.stringify(getItems("/")));
