@@ -3,9 +3,18 @@ The Markdown-based reference platform.
 
 ## Setup
 
- 1. Run `npm install` (or `yarn`).
- 2. (optional) Run `npm test` (or `yarn test`). (requires `npm install -D` or `yarn -D`).
- 3. Run `npm start`, and start exploring!
+ 1. Clone this repo.
+ 2. Run `npm install` (or `yarn`).
+ 3. (optional) Run `npm test` (or `yarn test`). (requires `npm install -D` or `yarn -D`).
+ 4. Run `npm start`, and start exploring!
+
+## Files
+
+In the root of this repo, there's a default `ref/` folder. That is the place where all your references are and will be!
+
+Catalogs are folders inside the folder, and the `ref/` folder is the root catalog. The references are the Markdown files inside of catalogs.
+
+In the internals of Candy, we don't use extensions for references, since all of them are Markdown files. So when you're trying to read a reference through Candy, remember that you only need to enter the filename without the extension.
 
 ## Control
 
