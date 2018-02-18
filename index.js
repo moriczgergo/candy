@@ -2,7 +2,7 @@
 var chalk = require('chalk'); // console colors
 const WebSocket = require('ws'); // websocket
 
-var { getReference, getItems } = require("./lib/reffs");
+var { getReference, getItems, createReference, createCatalog, editReference } = require("./lib/reffs");
 
 var wss = new WebSocket.Server({
 	port: process.env.CANDY_PORT || 4540
@@ -34,6 +34,48 @@ wss.on('connection', function connection(ws) {
 					ws.send(JSON.stringify({
 						type: messageObj.type,
 						items: items
+					}));
+				} else {
+					ws.send(JSON.stringify({
+						type: messageObj.type,
+						error: 404
+					}));
+				}
+				break;
+			case "newCatalog":
+				var result = createCatalog(messageObj.path);
+				if (typeof result != "undefined") {
+					ws.send(JSON.stringify({
+						type: messageObj.type,
+						path: messageObj.path
+					}));
+				} else {
+					ws.send(JSON.stringify({
+						type: messageObj.type,
+						error: 400
+					}));
+				}
+				break;
+			case "newReference":
+				var result = createReference(messageObj.path, messageObj.data);
+				if (typeof result != "undefined") {
+					ws.send(JSON.stringify({
+						type: messageObj.type,
+						path: messageObj.path
+					}));
+				} else {
+					ws.send(JSON.stringify({
+						type: messageObj.type,
+						error: 400
+					}));
+				}
+				break;
+			case "edit":
+				var result = editReference(messageObj.path, messageObj.data);
+				if (typeof result != "undefined") {
+					ws.send(JSON.stringify({
+						type: messageObj.type,
+						path: messageObj.path
 					}));
 				} else {
 					ws.send(JSON.stringify({
