@@ -1,4 +1,4 @@
-# Candy
+# Candy [![Build Status](https://travis-ci.org/moriczgergo/candy.svg?branch=master)](https://travis-ci.org/moriczgergo/candy)
 The Markdown-based reference platform.
 
 ## Setup
