@@ -1,4 +1,4 @@
-# Candy [![Build Status](https://travis-ci.org/moriczgergo/candy.svg?branch=master)](https://travis-ci.org/moriczgergo/candy)
+# Candy [![Build Status](https://travis-ci.org/candyref/candy.svg?branch=master)](https://travis-ci.org/candyref/candy)
 The Markdown-based reference platform.
 
 ## Setup
@@ -18,7 +18,7 @@ In the internals of Candy, we don't use extensions for references, since all of 
 
 ## Control
 
-Candy doesn't have any way to control it's references through itself by default. You need to get other packages, like [candy-cli](https://github.com/moriczgergo/candy-cli), or [candy-web](#) (coming soon).
+Candy doesn't have any way to control it's references through itself by default. You need to get other packages, like [candy-cli](https://github.com/candyref/candy-cli), or [candy-web](#) (coming soon).
 
 All of Candy's "control packages" use WebSockets to communicate with your instance of Candy.
 
@@ -26,4 +26,4 @@ All of Candy's "control packages" use WebSockets to communicate with your instan
 
 When you start Candy with `npm start`, what you do, is start a WebSocket server. Candy has two websocket commands (for now): reference, and list.
 
-To learn more about these commands, and building your own control packages, check out the [Candy wiki](https://github.com/moriczgergo/candy/wiki).
+To learn more about these commands, and building your own control packages, check out the [Candy wiki](https://github.com/candyref/candy/wiki).
